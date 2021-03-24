@@ -1,0 +1,16 @@
+{
+  "items": [
+    {
+      "name": "Bluetooth Box",
+      "price": 32.99
+    },
+    {
+      "name": "2000GB SSD",
+      "price": 45.99
+    },
+    {
+      "name": "Mousepad",
+      "price": 2.49
+    }
+  ]
+}

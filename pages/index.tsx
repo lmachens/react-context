@@ -1,19 +1,28 @@
 import Head from "next/head";
-import Button from "../components/button/Button";
 import styles from "../styles/Home.module.css";
+import useSWR from "swr";
+import { fetcher } from "../utils/api";
+import ItemCard from "../components/ItemCard";
+import { Item } from "../utils/types";
 
 export default function Home() {
+  const { data: items, error } = useSWR<Item[]>("/api/items", fetcher);
+
+  if (error) return <div>failed to load</div>;
+  if (!items) return <div>loading...</div>;
+
   return (
-    <div className={styles.container}>
+    <>
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.main}>
-        <Button primary label="Primary" />
-        <Button primary={false} label="Secondary" />
+        {items.map((item) => (
+          <ItemCard key={item.name} item={item} />
+        ))}
       </main>
-    </div>
+    </>
   );
 }
