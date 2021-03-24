@@ -1,6 +1,6 @@
 import type { AppProps } from "next/app";
 import { useState } from "react";
-import Cart from "../components/Cart";
+import AppHeader from "../components/AppHeader";
 import "../styles/globals.css";
 import { Item } from "../utils/types";
 
@@ -9,9 +9,8 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      <header>
-        <Cart items={items} onClear={() => setItems([])} />
-      </header>
+      <AppHeader items={items} onItemsClear={() => setItems([])} />
+
       <Component
         onItemAdd={(item: Item) => setItems((items) => [...items, item])}
         {...pageProps}
