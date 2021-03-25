@@ -7,10 +7,7 @@ import styles from "../styles/Home.module.css";
 import Link from "next/link";
 import ItemDetails from "../components/ItemDetails";
 
-type ItemPageProps = {
-  onItemAdd(item: Item): void;
-};
-export default function ItemPage({ onItemAdd }: ItemPageProps) {
+export default function ItemPage() {
   const router = useRouter();
   const { name } = router.query;
 
@@ -27,7 +24,7 @@ export default function ItemPage({ onItemAdd }: ItemPageProps) {
       </Head>
 
       <main className={styles.main}>
-        <ItemDetails item={item} onAdd={() => onItemAdd(item)} />
+        <ItemDetails item={item} />
         <Link href="/">
           <a>Back</a>
         </Link>

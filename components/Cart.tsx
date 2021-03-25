@@ -1,11 +1,9 @@
 import React from "react";
-import type { Item } from "../utils/types";
+import { useCartContext } from "../contexts/CartContext";
 
-type CartProps = {
-  items: Item[];
-  onClear(): void;
-};
-function Cart({ items, onClear }: CartProps) {
+function Cart() {
+  const { items, onClear } = useCartContext();
+
   const totalPrice = items.reduce<number>((prev, item) => prev + item.price, 0);
 
   return (
