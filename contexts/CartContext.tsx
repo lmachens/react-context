@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useState } from "react";
+import { createContext, ReactNode, useContext, useState } from "react";
 import type { Item } from "../utils/types";
 
 type CartContextType = {
@@ -33,4 +33,12 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
       {children}
     </CartContext.Provider>
   );
+}
+
+export function useCartContext() {
+  return useContext(CartContext);
+}
+
+export function useItems() {
+  return useCartContext().items;
 }

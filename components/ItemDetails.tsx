@@ -1,12 +1,12 @@
-import React, { useContext } from "react";
-import { CartContext } from "../contexts/CartContext";
+import React from "react";
+import { useCartContext } from "../contexts/CartContext";
 import { Item } from "../utils/types";
 
 type ItemDetailsProps = {
   item: Item;
 };
 function ItemDetails({ item }: ItemDetailsProps) {
-  const { onItemAdd } = useContext(CartContext);
+  const { onItemAdd } = useCartContext();
 
   return (
     <>
