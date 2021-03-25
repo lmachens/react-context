@@ -1,16 +1,13 @@
-import React from "react";
-import { Item } from "../utils/types";
-import Cart from "./Cart";
+import React, { ReactNode } from "react";
 
 type AppHeaderProps = {
-  items: Item[];
-  onItemsClear(): void;
+  children: ReactNode;
 };
-function AppHeader({ items, onItemsClear }: AppHeaderProps) {
+function AppHeader({ children }: AppHeaderProps) {
   return (
     <header>
       <h1>MyShopping24</h1>
-      <Cart items={items} onClear={onItemsClear} />
+      {children}
     </header>
   );
 }
